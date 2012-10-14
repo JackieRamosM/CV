@@ -1,12 +1,99 @@
-\documentclass[11pt,a4paper,sans]{moderncv} 
-\moderncvstyle{classic}                        % style options are 'casual' (default) and 'classic' 
-\moderncvcolor{grey}                          % color options 'blue' (default), 'orange', 'green', 'red', 'purple', 'grey' and 'black'
-\usepackage[utf8]{inputenc}                   % replace by the encoding you are using
-\usepackage[scale=0.75]{geometry}
-\firstname{Liliana}
-\familyname{Ramos}
-\begin{document}
-\maketitle
+\NeedsTeXFormat{LaTeX2e}
+\documentclass[11pt,a4paper,sans]{curve} %Documento Tipo Curve
 
-practicando para mi CV
-\end{document}	
+%Paquetes
+\usepackage[nohead,nofoot,left=2.5cm,right=2cm,vmargin=1.333cm]{geometry}
+\usepackage{currvita} 
+\usepackage{palatino}
+\usepackage{eurosym}
+\usepackage{graphicx}
+\usepackage[colorlinks=true,linkcolor=black,urlcolor=black,citecolor=black,pdftitle={CV},pdfauthor={Liliana Ramos},pdfsubject={Curriculum Vitae}]{hyperref} 
+\usepackage{color}
+
+
+% Para el idioma Español
+\usepackage[spanish]{babel}
+\selectlanguage{spanish}
+\usepackage[utf8]{inputenc}
+
+\definecolor{lsalmon}{RGB}{255,160,122}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%                  En el Header                     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%Lado Iquierdo-Datos Personales
+\leftheader{{\Huge\textbf{ \hspace{2cm}Liliana Ramos}} \\[2mm]
+
+	\textbf{Nombres:}\hspace{3.1cm}Liliana Jacqueline \\[1mm]
+	\textbf{Apellidos:} \hspace{2.9cm}Ramos Menéndez \\[1mm]
+	\textbf{Fecha de nacimiento:} \hspace{1cm}19 de Mayo de 1992 \\[1mm]
+	\textbf{Nacionalidad:}\hspace{2.25cm} Ecuatoriana \\[1mm]
+	\textbf{Estado Civil:}\hspace{2.5cm} Soltera \\[1mm]
+	\textbf{Domicilio:}\hspace{2.8cm} Guayaquil-Ecuador\\[1mm]
+	%\textbf{Teléfono particular:} \\[1mm]
+	%\textbf{Teléfono celular} \\[1mm]
+	\textbf{Correo electrónico:} \hspace{1.4cm}ljramos@espol.edu.ec\\[1mm]
+	%\item[Sitio web] http://servidor.com\\[1mm]
+}
+
+
+%Lado Derecho - Foto
+\rightheader{~%\\[\baselineskip] % saute une ligne
+
+}
+
+\photoscale{0.25}
+\photo[r]{IMG_0704.jpg}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%% %%%        Especificaciones del rubric          %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\rubricfont{\fontfamily{pag}\selectfont\bfseries\Large}
+\subrubricfont{\fontfamily{pag}\selectfont\bfseries\itshape\large}
+\keyfont{\fontfamily{pag}\selectfont\bfseries}
+
+
+\subrubricalignment{l} 
+
+\continuedname{~~(suite)}
+
+\setlength\subrubricspace{3pt}
+
+\makeatletter
+
+\def\@@rubrichead#1{%
+  \@rubricfont%
+  \makebox[0pt][l]{\colorbox{lsalmon}{\makebox[\@almosttextwidth-\hfuzz]{\ }}}%
+  \makebox[\@almosttextwidth-\hfuzz][c]{#1}\par\vspace\rubricspace}
+
+
+\def\@@subrubric#1{\raisebox{\@beforespace}{\@subrubricfont%
+    \makebox[1ex][l]{\colorbox{lsalmon}{\textcolor{lsalmon}{M}}}#1}%
+  \@subrubricmark{#1}%
+  \par\vspace\subrubricspace}
+\makeatother
+
+\headerscale{.7} 
+
+\makeatletter
+
+\newcolumntype{k}{>{\@keyfont\raggedright}p{2.3cm}@{}} 
+\makeatother
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%                Documento                        %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{document}
+\makeheaders
+\makerubric{cv_formacion}
+\makerubric{cv_certificados}
+\makerubric{cv_experiencia}
+\makerubric{cv_habilidades}
+
+\end{document}
